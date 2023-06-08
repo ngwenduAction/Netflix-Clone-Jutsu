@@ -2,8 +2,11 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import Input from "@/components/Input";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Auth = () => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -37,10 +40,12 @@ const Auth = () => {
         redirect: false,
         callbackUrl: "/",
       });
+
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
-  }, [email, password]);
+  }, [email, password, router]);
 
   return (
     <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
