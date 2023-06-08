@@ -19,19 +19,6 @@ const Auth = () => {
     );
   }, []);
 
-  const register = useCallback(async () => {
-    try {
-      await axios.post("/api/register", {
-        email,
-        name,
-        password,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-    // dependency array
-  }, [email, name, password]);
-
   const login = useCallback(async () => {
     try {
       await signIn("credentials", {
@@ -45,7 +32,23 @@ const Auth = () => {
     } catch (error) {
       console.log(error);
     }
+    // dependency array
   }, [email, password, router]);
+
+  const register = useCallback(async () => {
+    try {
+      await axios.post("/api/register", {
+        email,
+        name,
+        password,
+      });
+
+      login();
+    } catch (error) {
+      console.log(error);
+    }
+    // dependency array
+  }, [email, name, password, login]);
 
   return (
     <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
