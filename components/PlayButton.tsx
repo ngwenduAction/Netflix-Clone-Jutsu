@@ -10,7 +10,8 @@ const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
   const router = useRouter();
 
   return (
-    <div
+    <button
+      onClick={() => router.push(`/watch/${movieId}`)}
       className="
     bg-white
     rounded-md
@@ -26,8 +27,9 @@ const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
     transition
     "
     >
+      <BsFillPlayFill size={25} className="mr-1" />
       Play
-    </div>
+    </button>
   );
 };
 
