@@ -4,8 +4,10 @@ import { without } from 'lodash';
 import prismadb from '@/lib/prismadb';
 import serverAuth from '@/lib/serverAuth';
 
+// API request to trigger & to remove and add favorite ID into our list
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
+        // Post Method
         if (req.method === 'POST') {
             const { currentUser } = await serverAuth(req, res);
 
@@ -34,11 +36,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             return res.status(200).json(user);
         }
-
+        // Delete Method
         if (req.method === 'DELETE') {
             const { currentUser } = await serverAuth(req, res);
 
-            const { movieId } = req.body;
+            const { movieId } = req.query as { movieId: string };
 
             const existingMovie = await prismadb.movie.findUnique({
                 where: {

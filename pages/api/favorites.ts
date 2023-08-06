@@ -1,3 +1,4 @@
+// An API route that is only going to load our favorite movies
 import { NextApiRequest, NextApiResponse } from "next";
 
 import prismadb from '@/lib/prismadb';
