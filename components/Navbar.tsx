@@ -4,6 +4,7 @@ import { BsChevronDown, BsSearch, BsBell } from "react-icons/bs";
 import NavbarItem from "./NavbarItem";
 import MobileMenu from "./MobileMenu";
 import AccountMenu from "./AccountMenu";
+import Image from "next/image";
 
 const TOP_OFFSET = 66;
 
@@ -52,7 +53,14 @@ const Navbar = () => {
 
             `}
       >
-        <img className="h-4 lg:h-7" src="/images/logo.png" alt="Logo" />
+        {/* Using specific dimensions (pixels) */}
+        <Image
+          className="h-4 lg:h-7"
+          src="/images/logo.png"
+          alt="Logo"
+          width={1280}
+          height={346}
+        />
         <div
           className="
             flex-row
@@ -94,7 +102,13 @@ const Navbar = () => {
             className="flex flex-row items-center gap-2 cursor-pointer relative"
           >
             <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-              <img src="/images/default-blue.png" alt="" />
+              {/* Using specific dimensions (pixels) */}
+              <Image
+                src="/images/default-blue.png"
+                alt=""
+                width={320}
+                height={320}
+              />
             </div>
             <BsChevronDown
               className={`text-white transition ${
