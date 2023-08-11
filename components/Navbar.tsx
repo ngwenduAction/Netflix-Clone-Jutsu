@@ -58,8 +58,8 @@ const Navbar = () => {
           className="h-4 lg:h-7"
           src="/images/logo.png"
           alt="Logo"
-          width={1280}
-          height={346}
+          width={150}
+          height={200}
         />
         <div
           className="
