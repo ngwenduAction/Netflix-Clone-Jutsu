@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useCallback, useState } from "react";
-import Input from "@/components/Input";
 import { signIn } from "next-auth/react";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
+
+import Input from "@/components/Input";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
