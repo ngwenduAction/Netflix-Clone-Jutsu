@@ -1,4 +1,3 @@
-// Account Menu
 import useCurrentUser from "@/hooks/useCurrentUser";
 import { signOut } from "next-auth/react";
 import React from "react";
